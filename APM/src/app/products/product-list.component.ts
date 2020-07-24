@@ -8,7 +8,7 @@ import {CriteriaComponent} from '../shared/criteria/criteria.component';
     templateUrl: './product-list.component.html',
     styleUrls: ['./product-list.component.css']
 })
-export class ProductListComponent implements OnInit, AfterViewInit {
+export class ProductListComponent implements OnInit {
     pageTitle: string = 'Product List';
     showImage: boolean;
     listFilter: string;
@@ -35,8 +35,8 @@ export class ProductListComponent implements OnInit, AfterViewInit {
         );
     }
 
-    ngAfterViewInit() {
-        this.parentListFilter = this.filterComponent.listFilter;
+    onValueChange(value: string): void {
+        this.performFilter(value);
     }
 
     toggleImage(): void {
